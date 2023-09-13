@@ -52,7 +52,7 @@ null_ls.setup({
 				buffer = bufnr,
 				-- on 0.8, you should use vim.lsp.buf.format instead
 				callback = function()
-                    vim.lsp.buf.format()
+                    vim.lsp.buf.formatting()
                 end,
 			})
 		end

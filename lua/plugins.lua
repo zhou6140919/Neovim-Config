@@ -19,11 +19,11 @@ packer.startup({
 		-- telescope extensions
 		use("LinArcX/telescope-env.nvim")
 		-- dashboard-nvim
-        use({'glepnir/dashboard-nvim', commit="11fed4b829a68e1d47635e9b10bb6254af6ef3d9" })
+		use("glepnir/dashboard-nvim")
 		-- project
 		use("ahmedkhalf/project.nvim")
 		-- treesitter （新增）
-		use({ "nvim-treesitter/nvim-treesitter" })
+		use({ "nvim-treesitter/nvim-treesitter", commit="4cccb6f", run = ":TSUpdate" })
 		--------------------- LSP --------------------
 		use("williamboman/mason.nvim")
 		-- Lspconfig
