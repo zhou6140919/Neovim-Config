@@ -28,7 +28,7 @@ db.custom_center = {
   },
   {
     icon = "  ",
-    desc = "Edit .bashrc                        ",
+    desc = "Edit ~/.zshrc                       ",
     action = "edit ~/.zshrc",
   },
   {

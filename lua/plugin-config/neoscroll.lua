@@ -6,6 +6,8 @@ end
 
 require("neoscroll").setup({
 	mappings = { "<C-u>", "<C-d>", "zt", "zz", "zb" },
+    hide_cursor = false,
+    easing_function="sine"
 })
 
 local t = {}

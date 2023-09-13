@@ -37,9 +37,15 @@ map("n", "so", "<C-w>o", opt)
 -- map("n", "<C-w>l", "<C-w>l", opt)
 
 -- Terminal相关
-map("n", "<leader>t", ":sp | terminal<CR>", opt)
-map("n", "<leader>vt", ":vsp | terminal<CR>", opt)
+map("n", "<leader>t", ":let $VIM_DIR=expand('%:p:h')<CR>:sp<CR>:terminal<CR>:startinsert<CR>cd $VIM_DIR<CR><C-l>", opt)
+map(
+	"n",
+	"<leader>vt",
+	":let $VIM_DIR=expand('%:p:h')<CR>:vsp<CR>:terminal<CR>:startinsert<CR>cd $VIM_DIR<CR><C-l>",
+	opt
+)
 map("t", "<Esc>", "<C-\\><C-n>", opt)
+map("t", "jk", "<C-\\><C-n>", opt)
 map("t", "<A-h>", [[ <C-\><C-N><C-w>h ]], opt)
 map("t", "<A-j>", [[ <C-\><C-N><C-w>j ]], opt)
 map("t", "<A-k>", [[ <C-\><C-N><C-w>k ]], opt)
@@ -85,7 +91,6 @@ pluginKeys.nvimTreeList = {
 	{ key = "s", action = "system_open" },
 }
 
--- bufferline
 -- 左右Tab切换
 map("n", "<C-j>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
@@ -125,7 +130,7 @@ pluginKeys.mapLSP = function(map)
 	-- rename
 	map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
 	-- code action
-	map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
+	-- map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
 	-- go xx
 	map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
 	map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)

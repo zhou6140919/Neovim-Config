@@ -6,20 +6,50 @@ packer.startup({
 		-- 你的插件列表...
 		-- colorscheme
 		use("folke/tokyonight.nvim")
-		use({ "catppuccin/nvim", as = "catppuccin", commit="c5ed881" })
+		use({ "nyoom-engineering/oxocarbon.nvim" })
+		use({ "catppuccin/nvim", as = "catppuccin", commit = "c5ed881" })
+		use({
+			"yamatsum/nvim-cursorline",
+			config = function()
+				require("nvim-cursorline").setup({
+					cursorline = {
+						enable = true,
+						timeout = 1000,
+						number = false,
+					},
+					cursorword = {
+						enable = true,
+						min_length = 3,
+						hl = { underline = true },
+					},
+				})
+			end,
+		})
+		-- Message
+		use({
+			"rcarriga/nvim-notify",
+			config = function()
+				require("notify").setup({
+					stages = "fade_in_slide_out",
+					background_colour = "FloatShadow",
+					timeout = 5000,
+				})
+				vim.notify = require("notify")
+			end,
+		})
 		-- nvim-tree
-		use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons", commit="949913f" })
+		use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons", commit = "949913f" })
 		--bufferline
 		use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
 		--lualine
 		use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 		use("arkav/lualine-lsp-progress")
 		-- telescope
-		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" }, commit="b79cd6c" })
+		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" }, commit = "b79cd6c" })
 		-- telescope extensions
 		use("LinArcX/telescope-env.nvim")
 		-- dashboard-nvim
-        use({'glepnir/dashboard-nvim', commit="11fed4b829a68e1d47635e9b10bb6254af6ef3d9" })
+		use({ "glepnir/dashboard-nvim", commit = "11fed4b829a68e1d47635e9b10bb6254af6ef3d9" })
 		-- project
 		use("ahmedkhalf/project.nvim")
 		-- treesitter （新增）
@@ -45,7 +75,11 @@ packer.startup({
 			end,
 		})
 		-- formatter
-		use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim", commit="af12c0df06afb737c66eb91bf5eaf92bd2d01a42" })
+		use({
+			"jose-elias-alvarez/null-ls.nvim",
+			requires = "nvim-lua/plenary.nvim",
+			commit = "af12c0df06afb737c66eb91bf5eaf92bd2d01a42",
+		})
 		-- auto complete
 		use("hrsh7th/nvim-cmp")
 		use("hrsh7th/cmp-nvim-lsp")

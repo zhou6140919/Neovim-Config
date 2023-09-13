@@ -32,3 +32,4 @@ vim.cmd([[highlight CopilotSuggestion guifg=#555555 ctermfg=8]])
 vim.cmd([[set updatetime=100]])
 
 vim.cmd([[set mouse=]])
+vim.notify = require("notify")
