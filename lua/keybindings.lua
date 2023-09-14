@@ -152,6 +152,6 @@ pluginKeys.mapLSP = function(map)
 end
 
 -- SymbolsOutline
-map("n", "<leader>b", ":SymbolsOutline<CR>", opt)
+map("n", "<leader>b", ":AerialToggle<CR>", opt)
 
 return pluginKeys
