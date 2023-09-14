@@ -33,3 +33,4 @@ vim.cmd([[set updatetime=100]])
 
 vim.cmd([[set mouse=]])
 vim.notify = require("notify")
+vim.loader.enable()

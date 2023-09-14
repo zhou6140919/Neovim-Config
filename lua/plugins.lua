@@ -4,6 +4,28 @@ packer.startup({
 		-- Packer 可以管理自己本身
 		use("wbthomason/packer.nvim")
 		-- 你的插件列表...
+		-- git
+		use({
+			"akinsho/git-conflict.nvim",
+			tag = "*",
+			config = function()
+				require("git-conflict").setup()
+			end,
+		})
+		use({
+			"lewis6991/gitsigns.nvim",
+			config = function()
+				require("gitsigns").setup({
+					current_line_blame = true,
+					current_line_blame_opts = {
+						virt_text = true,
+						virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+						delay = 200,
+						ignore_whitespace = false,
+					},
+				})
+			end,
+		})
 		-- colorscheme
 		use("folke/tokyonight.nvim")
 		use({ "nyoom-engineering/oxocarbon.nvim" })
@@ -35,6 +57,37 @@ packer.startup({
 					timeout = 5000,
 				})
 				vim.notify = require("notify")
+			end,
+		})
+		-- SymbolOutline
+		use({
+			"simrat39/symbols-outline.nvim",
+			require("symbols-outline").setup({
+				keymaps = { -- These keymaps can be a string or a table for multiple keys
+					close = { "<ESC>" },
+					goto_location = "o",
+					focus_location = "z",
+					hover_symbol = "<C-space>",
+					toggle_preview = "K",
+					rename_symbol = "r",
+					code_actions = "a",
+					fold = ";",
+					unfold = "h",
+					fold_all = "W",
+					unfold_all = "E",
+					fold_reset = "R",
+				},
+			}),
+		})
+		-- CodeMap
+		use({
+			"gorbit99/codewindow.nvim",
+			config = function()
+				local codewindow = require("codewindow")
+				codewindow.setup({
+					auto_enable = true,
+				})
+				codewindow.apply_default_keybinds()
 			end,
 		})
 		-- nvim-tree
@@ -119,4 +172,16 @@ pcall(
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
     augroup end
   ]]
+)
+
+pcall(
+	vim.cmd,
+	[[
+    command! NeotestSummary lua require("neotest").summary.toggle()
+    command! NeotestFile lua require("neotest").run.run(vim.fn.expand("%"))
+    command! Neotest lua require("neotest").run.run(vim.fn.getcwd())
+    command! NeotestNearest lua require("neotest").run.run()
+    command! NeotestDebug lua require("neotest").run.run({ strategy = "dap" })
+    command! NeotestAttach lua require("neotest").run.attach()
+    ]]
 )

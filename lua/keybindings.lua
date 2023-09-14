@@ -151,4 +151,7 @@ pluginKeys.mapLSP = function(map)
 	-- map('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
 
+-- SymbolsOutline
+map("n", "<leader>b", ":SymbolsOutline<CR>", opt)
+
 return pluginKeys
