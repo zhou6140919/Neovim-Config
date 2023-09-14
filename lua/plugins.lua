@@ -59,25 +59,11 @@ packer.startup({
 				vim.notify = require("notify")
 			end,
 		})
-		-- SymbolOutline
 		use({
-			"simrat39/symbols-outline.nvim",
-			require("symbols-outline").setup({
-				keymaps = { -- These keymaps can be a string or a table for multiple keys
-					close = { "<ESC>" },
-					goto_location = "o",
-					focus_location = "z",
-					hover_symbol = "<C-space>",
-					toggle_preview = "K",
-					rename_symbol = "r",
-					code_actions = "a",
-					fold = ";",
-					unfold = "h",
-					fold_all = "W",
-					unfold_all = "E",
-					fold_reset = "R",
-				},
-			}),
+			"stevearc/aerial.nvim",
+			config = function()
+				require("aerial").setup()
+			end,
 		})
 		-- CodeMap
 		use({
