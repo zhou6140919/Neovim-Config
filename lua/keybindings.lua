@@ -22,6 +22,7 @@ map("v", "l", "l", opt)
 map("v", "h", "i", opt)
 map("v", "H", "I", opt)
 map("n", "<LEADER><CR>", ":nohlsearch<CR>", opt)
+map("n", "f", "/", opt)
 
 -- windows 分屏快捷键
 map("n", "sv", ":vsp<CR>", opt)
