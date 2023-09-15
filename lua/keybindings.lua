@@ -154,5 +154,6 @@ end
 
 -- SymbolsOutline
 map("n", "<leader>b", ":AerialToggle<CR>", opt)
+map("n", "<leader>c", ":ChatGPT<CR>", opt)
 
 return pluginKeys
