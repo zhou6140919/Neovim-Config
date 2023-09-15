@@ -4,6 +4,18 @@ packer.startup({
 		-- Packer 可以管理自己本身
 		use("wbthomason/packer.nvim")
 		-- 你的插件列表...
+		-- coding
+		use({
+			"jackMort/ChatGPT.nvim",
+			config = function()
+				require("chatgpt").setup()
+			end,
+			requires = {
+				"MunifTanjim/nui.nvim",
+				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope.nvim",
+			},
+		})
 		-- git
 		use({
 			"akinsho/git-conflict.nvim",
