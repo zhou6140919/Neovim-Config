@@ -4,6 +4,7 @@ packer.startup({
 		-- Packer 可以管理自己本身
 		use("wbthomason/packer.nvim")
 		-- 你的插件列表...
+		use({ "edluffy/hologram.nvim" })
 		-- coding
 		use({
 			"jackMort/ChatGPT.nvim",
@@ -111,7 +112,11 @@ packer.startup({
 		use("williamboman/mason-lspconfig.nvim")
 		use("neovim/nvim-lspconfig")
 		-- indent-blankline
-		use("lukas-reineke/indent-blankline.nvim")
+		use({"lukas-reineke/indent-blankline.nvim",
+            config = function()
+                require("ibl").setup()
+            end,
+        })
 		-- ui
 		use("tami5/lspsaga.nvim")
 		use("onsails/lspkind-nvim")
