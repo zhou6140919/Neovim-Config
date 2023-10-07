@@ -112,11 +112,12 @@ packer.startup({
 		use("williamboman/mason-lspconfig.nvim")
 		use("neovim/nvim-lspconfig")
 		-- indent-blankline
-		use({"lukas-reineke/indent-blankline.nvim",
-            config = function()
-                require("ibl").setup()
-            end,
-        })
+		use({
+			"lukas-reineke/indent-blankline.nvim",
+			config = function()
+				require("ibl").setup()
+			end,
+		})
 		-- ui
 		use("tami5/lspsaga.nvim")
 		use("onsails/lspkind-nvim")
